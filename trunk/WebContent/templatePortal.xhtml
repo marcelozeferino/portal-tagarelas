@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+<link rel="stylesheet" type="text/css" href="css/tagarelas.css" />
+</h:head>
+
+<h:body>
+
+<div id="fora_header">
+<h:form>
+	<div id="dentro_header">
+	<p><a href="index.html"><img id="logo" src="imagens/logo.png" alt="Portal Tagarelas" border="0"/></a>
+		</p>
+		
+	<nav> 
+
+		<ul> 
+		
+		 <p class="IconTitle" id="tagarelasTitle">tagarelas</p> 
+		<li>
+		<h:link outcome="index" > 
+			<div class="sectionIcon" id="tabTagarelasActive"></div>
+		</h:link>
+		</li>
+		
+		<p class="IconTitle" id="dinamicasTitle">dinâmicas</p>
+		<li>
+		<h:link outcome="dinamica" > 
+		<div class="sectionIcon2" id="tabdinamicas"></div></h:link></li>
+		<p class="IconTitle" id="sistemasTitle">sistemas</p>
+		
+		<li>
+			<h:link outcome="sistemas" > 
+			<div class="sectionIcon2" id="tabsistemas"></div>
+			</h:link>
+		</li>
+		
+		<p class="IconTitle" id="agendaTitle">agenda</p>
+		<li><div class="sectionIcon2" id="tabagenda"></div></li>
+		
+		<p class="IconTitle" id="arquivoTitle">arquivo</p>
+		<li><div class="sectionIcon2" id="tabarquivo"></div></li>
+		
+		<p class="IconTitle" id="analiseTitle">análise</p>
+		<li><h:link outcome="analise" > <div class="sectionIcon2" id="tabanalise"></div></h:link></li>
+		
+		<p class="IconTitle" id="publicacoesTitle">publicações</p>
+		<li><h:link outcome="publicacao" > <div class="sectionIcon2" id="tabpublicacoes"></div></h:link></li>
+		
+		
+		
+		</ul> 
+		
+	</nav>	
+		
+		 
+</div>	
+</h:form>
+</div>
+
+
+
+
+<ui:insert name="conteudo"/>
+
+
+
+</h:body>
+</html>

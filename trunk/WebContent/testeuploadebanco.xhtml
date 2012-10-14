@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+</h:head>
+<h:body>
+<h:form enctype="multipart/form-data">  
+  
+    <p:messages showDetail="true"/>  
+  
+    <p:fileUpload value="#{uploadArquivoPrimeFaces.file}" mode="simple"/>  
+  
+    <p:commandButton value="Submit" ajax="false"  
+                actionListener="#{uploadArquivoPrimeFaces.upload}"/>  
+              <h:outputText value="Marcelo3"></h:outputText>  
+    <p:commandButton  action="#{agendaBean.busca}">Busca</p:commandButton>          
+ </h:form>
+ 
+ 	<div id="div_agenda" style="position: absolute; left: 10px; top: 106px; height: 219px">
+<div id="tl_agenda">
+					<span  class="titulo agenda">Agenda</span>
+		  </div>
+				<table border="0" width="100%" id="table6" cellspacing="5" cellpadding="2" >
+					<tr> 
+					 <ui:repeat var="item" value="#{agendaBean.agendasRecentes}" varStatus="status">
+						<td>
+							<h:graphicImage url="#{item.arquivo}"   style="height: 85px; width: 85px; "/><br/>
+							<font size="2" color="#808080" face="Verdana"><h:outputLabel value="#{item.data}">
+    							<f:convertDateTime pattern="dd/MM/yyyy" />
+    						</h:outputLabel>
+   							 -<h:outputLabel value="#{item.hora}"/></font><br/>
+							 <font face="Verdana" size="2"><b><h:outputLabel value="#{item.assunto}"/></b></font> <br/>
+							<font face="Verdana" size="2"><h:outputLabel value="#{item.descricao}"/> </font>
+						</td>
+					  </ui:repeat>
+					</tr>
+				</table>
+		</div>
+	<br/><br/>fdhgfh
+    <div id="segunda_parte" style="position: absolute; top: 329px; left: 8px;">
+	<div style="position: absolute; width: 270px; height: 342px; z-index: 2; left: 0px; padding-left: 4px; padding-right: 4px; padding-top: 1px; padding-bottom: 1px; top:0px" id="arquivo">
+	 
+<div style="position: absolute; width: 268px; height: 27px; z-index: 1; left: 1px; top: 1px; " id="tl_arquivo">
+		&nbsp;<span class="subtitulo arquivo" >Arquivo</span></div>
+	<p>&nbsp;</p>
+   <h:form>
+	<table border="0" width="100%" id="table3">
+     <ui:repeat var="itemArquivo" value="#{agendaBean.listaArquivoPaginaPrincipal}" varStatus="listaAgendaArquivo">
+		<tr>
+			<td valign="top">
+            <h:graphicImage url="#{itemArquivo.arquivo}"  style="height: 71px; width: 75px; "/>
+			</td>
+			<td><b><font size="2" face="Verdana"><h:outputLabel value="#{itemArquivo.assunto}"/><br/>
+			</font></b><font face="Verdana" size="2"><h:outputLabel value="#{itemArquivo.descricao}"/></font><font size="2"><br/>
+&nbsp;</font></td>
+		</tr>
+        </ui:repeat>
+		
+	</table>
+   
+	<p align="right"><font face="Verdana" size="2"><h:commandLink
+							action="#{arquivoBean.getArquivo}" value="ver outros papos"></h:commandLink></font></p>
+      </h:form>
+     </div>
+
+<div style="position: absolute; width: 270px; height: 342px; z-index: 5; left: 274px; padding-left: 4px; padding-right: 4px; padding-top: 1px; padding-bottom: 1px; top:0px" id="sistemas">
+<div style="position: absolute; width: 268px; height: 27px; z-index: 1; left: 1px; top: 1px; " id="tl_arquivo0">
+		&nbsp;<span class="subtitulo sistema" >Sistemas</span></div>
+	<br/>
+	&nbsp;<table border="0" width="96%" id="table5">
+	<tr>
+		<td width="257">
+		<p align="left"><font face="Verdana"><font color="#c02020"><b>
+		<font size="2">Batepapo:</font></b></font><font size="2"><br/>
+		Ferramenta genérica de batepapo que permite uma discussão divertida.</font><br/>
+&nbsp;</font></p></td>
+	</tr>
+	
+</table>
+</div>
+
+
+
+<div style="position: absolute; width: 270px; height: 342px; z-index: 5; left: 548px; padding-left: 4px; padding-right: 4px; padding-top: 1px; padding-bottom: 1px; top:0px" id="agendar_agora">
+<div style="position: absolute; width: 268px; height: 27px; z-index: 1; left: 1px; top: 1px; " id="tl_arquivo1">
+		<font face="Arial" size="4" color="#ff9000">Agende uma sessão agora</font></div>
+	<br/>
+	&nbsp;<table border="0" width="100%" id="table4">
+	<tr>
+		<td><img border="0" src="images/Um.JPG" width="50" height="60"/></td>
+		<td><font face="Verdana" size="2">Defina o assunto</font></td>
+	</tr>
+	<tr>
+		<td><img border="0" src="images/Dois.JPG" width="50" height="60"/></td>
+		<td><font face="Verdana" size="2">Escolha a data e hora</font></td>
+	</tr>
+	<tr>
+		<td><img border="0" src="images/Tres.JPG" width="50" height="60"/></td>
+		<td><font face="Verdana" size="2">Selecione o sistema</font></td>
+	</tr>
+</table>
+<p align="right"><font face="Verdana" size="2">
+	<h:link value="agende agora" outcome="agendar" />
+</font></p></div>
+
+</div>             
+
+
+
+
+
+            
+</h:body>
+
+</html>

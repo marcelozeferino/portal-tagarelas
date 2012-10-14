@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templatePortal.xhtml">
+	<ui:define name="conteudo">
+	<div id="conteudo">
+	
+	<article>
+	
+	<div id="deslocamento">
+	<p id="portal">portal</p><p id="portal2">tagarelas</p><p id="portal3">: bate-papo para educação</p>
+	</div>
+	<img id="imgprincipal" src="imagens/ilustracaoTagarelas.png" alt="Portal Tagarelas"/>
+	
+	<ul>
+	
+	<li><h:link outcome="cadastroUsu"> <b>Cadastre-se</b> no portal</h:link> </li>
+	<li> <b>Agende</b> uma sessão com o uso de um <b>sistema</b> de bate-papo específico </li>
+	<li> <b>Convide</b> pessoas para participar do bate-papo </li>
+	
+	</ul>
+	
+</article>
+	
+	
+	
+<div id="ajustedinamicas">
+
+<div id="secdinamicas">
+
+<img src="imagens/talk.png" alt="Dinâmicas"/> 
+
+<p id="titulo"> de grupo com bate-papo </p>
+
+<hr  color="#EEB422"/>
+
+	<dl>
+		<p id="dinamicas">dinâmicas</p>
+		<dt><p  id="subtext">Entrevistas</p></dt>
+		<dd class="text">A turma entrevista um especialista no tema da disciplina</dd>
+		<dt><p  id="subtext">Discussão de conteúdos</p></dt>
+		<dd class="text">A turma discute um conjunto pré-definido de tópicos da aula</dd>
+		<dt><p id="subtext">Debate</p></dt>
+		<dd class= "text">Os participantes debatem o tema da aula correlacionando as falas</dd>
+	
+	</dl>
+
+</div>
+</div>
+
+<!-- 
+<div id="ajustesistemas">
+<div id="secsistema">
+
+
+<img src="imagens/pc.png" alt="Sistema"/>
+
+<p id="tit2"> de bate-papo </p>
+	<p id="sistema">sistemas</p>
+	<hr  color="#008B00"/>
+	<ul>
+		
+		<li>Tagarela</li>
+		<p class= "text">Bate-papo típico</p>
+		<li>TabsChat</li>
+		<p class= "text">Discussão de conteúdos</p>
+		<li>InterVIU</li>
+		<p class= "text">Entrevistas</p>
+	</ul>
+
+	<ul id="lista2">
+	
+		<li>Debatepapo</li>
+		<p class= "text">Discussão encadeada</p>
+		<li>MediatedChat</li>
+		<p class= "text">Discussão com moderação</p>
+	
+	</ul>
+
+</div>
+</div>
+ -->
+<div id="ajusteagenda">
+
+<div id="secagenda">
+
+	<img src="imagens/time.png" alt="Agenda"/>
+
+	<p id="tit1"> das próximas sessões </p>
+	<p id="agenda">agenda</p>
+	<hr  color="#63B8FF"/>
+	
+	<ul>
+		
+		 <ui:repeat var="item" value="#{agendaBean.agendasRecentes}" varStatus="status">
+						
+					 
+		
+		<li><h:outputLabel value="#{item.assunto}"/></li>
+		<p class= "text"><h:outputLabel value="#{item.data}">
+    							<f:convertDateTime pattern="dd/MM/yyyy" />
+    						</h:outputLabel> - <h:outputLabel value="#{item.hora}"/> Gleison</p>
+		
+		 </ui:repeat>
+	</ul>
+
+</div>
+
+</div>
+
+
+<div id="ajustesistemas">
+<div id="secarquivo">
+
+<img src="imagens/file.png" alt="Arquivo"/>
+
+<p id="tit3"> de sessões passadas </p>
+	<p id="arquivo">arquivo</p>
+	<hr  color="#104E8B"/>
+	<ul>
+	
+	<ui:repeat var="itemArquivo" value="#{agendaBean.listaArquivoPaginaPrincipal}" varStatus="listaAgendaArquivo">
+	
+       
+        
+        
+		
+		<li><h:outputLabel value="#{itemArquivo.assunto}"/></li>
+		<p class= "text"><h:outputLabel value="#{itemArquivo.data}">
+    							<f:convertDateTime pattern="dd/MM/yyyy" />
+    						</h:outputLabel> - <h:outputLabel value="#{itemArquivo.hora}"/> - 321 msg</p>
+		
+	 </ui:repeat>
+	</ul>
+
+
+
+</div>
+</div>
+
+<div id="ajustesistemas">
+<div id="secanalise">
+
+<img src="imagens/eye.png" alt="análise"/>
+
+<p id="tit4"> de registro de sessão de bate-papo </p>
+	<p id="analise">análise</p>
+	<hr  color="#DDA0DD"/>
+	<ul>
+		
+		<li>Analítico</li>
+		<p class= "text">Análise do Discurso</p>
+		<li>Visu</li>
+		<p class= "text">Visualizações Gráficas</p>
+		
+	
+	</ul>
+
+</div> 
+</div>
+
+<div id="ajustesistemas">
+<div id="secpublicacoes">
+
+<img src="imagens/paper.png" alt="Publicações"/>
+
+<p id="tit5"> sobre bate-papo na educação </p>
+	<p id="publicacoes">publicações</p>
+	<hr  color="#68228B"/>
+	<ul>
+		
+		<li>Tagarelas: Portal de Bate-papo para Educação</li>
+		<p class= "text">2012, ABCiber</p>
+		<li>Evolução da Cultura do Bate-papo: do Party Line até os sistem...</li>
+		<p class= "text">2012, ABCiber</p>
+		<li>Modelo de Participação em Bate-papo Educacional</li>
+		<p class= "text">2012, SBIE</p>
+	
+	</ul>
+
+</div>
+</div>
+
+	
+	</div>
+	</ui:define>
+	
+	
+</ui:composition>
+</html>
