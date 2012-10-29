@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templatePortal.xhtml">
+	<ui:define name="conteudo">
+	
+<div id="conteudo">
+
+<article>
+
+	<p id="marcador">tagarelas</p> <img id="seta" src="imagens/seta.png" alt="Seta"/> <p id="sec6"> Bate-Papo Típico </p>
+	
+<p align="center"><h:messages globalOnly="true" style="color: red;" /></p>
+
+<h:panelGroup id="painelChat" 
+ rendered="#{not empty loginBean.login}">
+<p>Bem-vindo ao chat, <h:outputText value="#{loginBean.login}" /></p>
+
+ 
+<h:form id="formChat" prependId="false" >
+<h:inputHidden id="apelido"   value="#{loginBean.login}" />
+<div id="apDiv2"  style="background-color:#FFFDE0; overflow: auto; height:270px; width:200px; padding:5px; border: 1px solid #DEDEDE; margin-bottom:10px; top: 70px; left: 430px; position: absolute;"> 
+ <ui:repeat var="elemento" value="#{chatBean.listaUsuarios}" varStatus="status">
+    <img src="#{elemento.url}" alt='test'  width="15" height="20"/>  
+    <h:outputText  value="#{elemento.nomeUsuario}"  />
+    <br/>
+  </ui:repeat>
+</div>
+
+  <div class="scroll" style="background-color:#FFFDE0; overflow: auto; height:270px; width:400px; padding:5px; border: 1px solid #DEDEDE; margin-bottom:10px; top: 70px; position: absolute;">
+    <h:outputText value="#{salaChatBean.conversa}" escape="false" />
+  </div>
+ <!--   <div id="caixaDeMensagens" style="background-color:#FFFDE0; position:absolute; overflow: auto; height:270px; width:200px; padding:5px; border: 1px solid #DEDEDE; margin-bottom:10px; top:70px; left:654px; position: absolute;"></div> -->
+<br />
+<div  style="top: 358px; left: 10px; position: absolute; width: 414px; height: 28px; background-color: #FFFFFF; layer-background-color: #FFFFFF; border: 1px none #000000;">
+
+<h:inputText size="60" id="caixaMensagens"  value="#{chatBean.mensagem}"  /> 
+</div>
+<div style="top: 360px; left: 434px; position: absolute; width: 72px; height: 24px;">
+<h:commandButton action="#{chatBean.enviarMensagem}"  value="Enviar" onClick="enviaMensagem()" >
+	<f:param name="idAgenda" value="#{agendaBean.idAgenda}" />
+	<f:param name="idUsuario" value="#{loginBean.usuario.idUsuario}" />
+	
+</h:commandButton>
+</div>
+
+</h:form>
+</h:panelGroup>
+
+
+	
+</article>
+
+</div>
+	</ui:define>
+	<ui:define name="rodape">
+	   
+	</ui:define>
+	
+</ui:composition>
+</html>

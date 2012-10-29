@@ -5,7 +5,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 
 <h:head>
@@ -13,7 +14,60 @@
 </h:head>
 
 <h:body>
+<h:form>
+<div style="position: absolute; width: 317px; height: 79px; z-index: 2; left: 503px; top: 0px" id="loginDiv">
+				<!-- 
+	  <ui:insert name="login"> </ui:insert>
+		-->
 
+				<!--  inicio  -->
+				<c:choose>
+					<c:when test="#{!loginBean.flagValida}">
+						
+						<table border="0" width="100%" id="table1">
+							<tr>
+								<td width="148"><font face="Verdana" size="2">Login:</font>
+								</td>
+								<td colspan="2"><font face="Verdana" size="2">Senha:</font>
+								</td>
+							</tr>
+							<tr>
+								<td width="148">
+									<p>
+										<h:inputText id="input-nome" value="#{loginBean.login}" />
+									</p></td>
+								<td><h:inputText id="input-senha"
+										value="#{loginBean.senha}" />
+								</td>
+								<td>
+								<h:commandButton value="Validar Login" type="submit" action="#{loginBean.validarLogin}" />
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3">
+									<!--<h:outputLabel id="valida" value="#{loginBean.flagValida}"  /> -->
+								</td>
+							</tr>
+							
+							<tr>
+								<td width="148"><font size="1" face="Arial"> <h:commandLink
+											action="#{loginBean.cadastrarUsuario}" value="Cadastra-se"></h:commandLink>
+								</font>
+								</td>
+								<td colspan="2"><font face="Arial" size="1"> Esqueceu sua senha?
+								</font>
+								</td>
+							</tr>
+							 
+						</table>
+						<!--  inicio  -->
+					</c:when>
+					<c:otherwise>
+						<h:outputLabel id="valida" value="#{loginBean.usuario.nomeUsuario}"  /> está logado.	
+				</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>	
 <div id="fora_header">
 <h:form>
 	<div id="dentro_header">
@@ -44,7 +98,7 @@
 		</li>
 		
 		<p class="IconTitle" id="agendaTitle">agenda</p>
-		<li><div class="sectionIcon2" id="tabagenda"></div></li>
+		<li><h:link outcome="listaAgenda" ><div class="sectionIcon2" id="tabagenda"></div></h:link></li>
 		
 		<p class="IconTitle" id="arquivoTitle">arquivo</p>
 		<li><div class="sectionIcon2" id="tabarquivo"></div></li>
@@ -52,8 +106,8 @@
 		<p class="IconTitle" id="analiseTitle">análise</p>
 		<li><h:link outcome="analise" > <div class="sectionIcon2" id="tabanalise"></div></h:link></li>
 		
-		<p class="IconTitle" id="publicacoesTitle">publicações</p>
-		<li><h:link outcome="publicacao" > <div class="sectionIcon2" id="tabpublicacoes"></div></h:link></li>
+		<p class="IconTitle" id="publicacoesTitle">Minhas Sessões</p>
+		<li> <h:commandLink action="#{sessaoBean.getMinhaSessao}" ><div class="sectionIcon2" id="tabpublicacoes"></div></h:commandLink></li>
 		
 		
 		

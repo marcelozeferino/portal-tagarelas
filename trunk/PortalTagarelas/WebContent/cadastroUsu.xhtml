@@ -5,25 +5,26 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"   
+	xmlns:ace="http://www.icefaces.org/icefaces/components"  
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
 
 <ui:composition template="/templatePortal.xhtml">
 	<ui:define name="conteudo">
 	
 <div id="conteudo">
 
-<article>
+<article> 
 
 	<p id="marcador">tagarelas</p> <img id="seta" src="imagens/seta.png" alt="Seta"/> <p id="sec5"> análise </p>
 
 	<img id="imgsec" src="imagens/ilustracaoAnalise.png" alt="Portal Tagarelas"/>
 	
 	<p id="textosec"> 
-	 <h:form enctype="multipart/form-data" prependId="false">  
+	 <h:form enctype="multipart/form-data" >  
   
-    <p:messages showDetail="true"/>  
-  
-   
+      
   
   
    <table width="536" border="0">
@@ -48,14 +49,18 @@
      <td>	<h:inputText id="input-senha"  size="48" style="float: left" value="#{cadastroUsuarioBean.senha}"/></td>
    </tr>
     <tr>
-     <td align="right"><font face="Arial">Defina Senha:</font></td>
-     <td>	 <p:fileUpload value="#{cadastroUsuarioBean.file}" mode="simple"/>  </td>
+     <td align="right"><font face="Arial">Arquivo:</font></td>
+     <td>	  <ace:fileEntry id="file-entry" 
+                                                        fileEntryListener="#{cadastroUsuarioBean.cadastrarUsuario}" 
+                                                         immediateValidation="false" immediate="false" requiredMessage="" required="false"                                             /> </td>
    </tr>
    
    <tr> 
      <td colspan="2" align="right">
+      <h:commandButton id="submit" type="submit" value="Send File"/>
+     <!-- 
       <p:commandButton value="Submit" ajax="false"  
-                actionListener="#{cadastroUsuarioBean.cadastrarUsuario}"/>  
+                actionListener="#{cadastroUsuarioBean.cadastrarUsuario}"/>   -->
      </td>
      </tr>
  </table>
