@@ -177,6 +177,15 @@ public class AgendaBean {
 		
 		return lista;
 	}
+
+	public List<Agenda> getAgendasPassadas(){
+		
+		AgendaDAOImpl dao = new AgendaDAOImpl();
+		List<Agenda> lista = dao.getAgendasPassadas();
+				
+		return lista;
+		
+	}
 	
 	public String agendarSessao(){
 		return "agendar";
@@ -265,6 +274,12 @@ public class AgendaBean {
 		this.agendas = agendas;
 	}
 	
+	
+	public String gerarAnalise(){
+		
+        return "detalheAnalise.xhtml"; 
+        
+	}
 	
 	
 }

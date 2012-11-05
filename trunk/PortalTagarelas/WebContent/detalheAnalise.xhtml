@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templatePortal.xhtml">
+	<ui:define name="conteudo">
+	
+<div id="conteudo">
+
+		<p id="marcador">tagarelas</p> <img id="seta" src="imagens/seta.png" alt="Seta"/> <p id="sec5"> análise </p>
+
+	<div id="teste">	
+
+		<div style="height: 200px;width: 960px;" >
+		
+			<div style="height: 100px;width: 550px;float: left;" >
+				<p> <b>Dados da Sessão </b> </p>
+				<ul>
+					 <ui:repeat var="item" value="#{analiseBean.analise}" varStatus="status">
+						<li><b>Título:</b> <h:outputLabel value="Metodologia de Pesquisa Científica (Elaborando Questionários)"/></li>
+						<li><b>Duração:</b> <h:outputLabel value="#{item.duracao}"/></li>
+						<li><b>Quantidade de Participantes:</b> <h:outputLabel value="#{item.qtdeParticipantes}"/></li>
+						<li><b>Quantidade de Msgs Enviadas:</b> <h:outputLabel value="#{item.qtdeMsgsEnviadas}"/></li>
+						<li><b>Texto Produzido:</b> <h:outputLabel value="#{item.textoProduzido}"/></li>
+					 </ui:repeat>
+				</ul>
+			</div>
+	
+			<div style="height: 200px;width: 400px;float: Right;" >
+				<p> <b> Termos mais falados: </b> </p>
+				<img style="height: 150px;width: 400px" src="images/tagcloud.png" alt="TagCloud" />
+				<!-- <p:tagCloud style="height: 100px;width: 400px" model="#{analiseBean.analise.tagCloud}">  
+	   			</p:tagCloud> -->  
+			</div>
+			
+		</div>
+		
+				
+		<p> <b> Mensagens por Usuários </b> </p>
+		<div style="height: 400px;width: 960px;" >
+		
+			<div style="height: 300px;width: 550px;float: Left;"  >
+					<img style="height: 350px;width: 480px" src="images/BarraMsgPorUsuario.png" alt="TagCloud" />
+ 				<p:barChart value="#{analiseBean.analise.mensagensPorUsuario}" rendered="false"
+					orientation="horizontal" max="70.0" style="width:400px;height:300px;">  
+					<p:ajax event="itemSelect" listener="#{analiseBean.itemSelect}" />
+				</p:barChart>
+ 			</div>
+				
+			<div style="height: 400px;width:400px;float: left;" >
+				<img style="height: 350px;width: 500px" src="images/BolhaMsgPorUsuario.png" alt="TagCloud" />
+				<p:bubbleChart  
+					value="#{analiseBean.analise.caracteresPorUsuario}" xaxisLabel="Caracteres" yaxisLabel="Mensagens"  
+	              		 style="width:400px;height:500px" rendered="false" 
+	              		 shadow="false" bubbleGradients="true" bubbleAlpha="0.8"
+	              		 /> 
+			</div>
+		</div>
+		
+		<br/>
+		<p> <b> Quantidade de Caracteres por Usuários </b> </p>
+		<div style="height: 400px;width: 960px;" >
+		
+			<div style="height: 350px;width: 550px;float: Left;"  >
+				<img style="height: 350px;width: 480px" src="images/BarraCaracPorUsuario.png" alt="TagCloud" />
+				 <p:barChart value="#{analiseBean.analise.mensagensPorUsuario}" rendered="false"
+					orientation="horizontal" max="70.0" style="width:400px;height:300px;">  
+					<p:ajax event="itemSelect" listener="#{analiseBean.itemSelect}" />
+				</p:barChart>
+			</div>
+				
+			<div style="height: 350px;width: 400px;float: left;" >
+				<img style="height: 350px;width: 500px" src="images/BolhaCaractPorUsuario.png" alt="TagCloud" />
+				<p:bubbleChart  
+					value="#{analiseBean.analise.caracteresPorUsuario}" xaxisLabel="Caracteres" yaxisLabel="Mensagens"  
+	              		 style="width:400px;height:300px" rendered="false"
+	              		 shadow="false" bubbleGradients="true" bubbleAlpha="0.8"
+	              		 />   
+			</div>
+		</div>
+		
+		<br/>
+		<p> <b> Mensagens e Caracteres por Usuários </b> </p>
+		<div style="height: 350px;width: 960px;" >
+		
+			<div style="height: 350px;width: 550px;float: left;" >
+				<img style="height: 350px;width: 480px" src="images/BarraMensagensCaracteres.png" alt="TagCloud" />
+				<p:bubbleChart  
+					value="#{analiseBean.analise.caracteresPorUsuario}" xaxisLabel="Caracteres" yaxisLabel="Mensagens"  
+	              		 title="Produção de Texto por Usuário" style="width:400px;height:300px" rendered="false" 
+	              		 shadow="false" bubbleGradients="true" bubbleAlpha="0.8"
+	              		 />   
+			</div>
+			
+			<div style="height: 500px;width: 400px;float: left;" >
+				<img style="height: 350px;width: 480px" src="images/BolhaMsgXCaracteres.png" alt="TagCloud" />
+				<p:bubbleChart  
+					value="#{analiseBean.analise.caracteresPorUsuario}" xaxisLabel="Caracteres" yaxisLabel="Mensagens"  
+	              		 title="Produção de Texto por Usuário" style="width:400px;height:300px" rendered="false" 
+	              		 shadow="false" bubbleGradients="true" bubbleAlpha="0.8"
+	              		 />  
+			</div>
+			
+		</div>
+						
+	</div>
+	
+</div>
+	</ui:define>
+	<ui:define name="rodape">
+	  
+	</ui:define>
+	
+</ui:composition>
+</html>

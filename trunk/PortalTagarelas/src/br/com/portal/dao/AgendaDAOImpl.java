@@ -123,7 +123,18 @@ public List<Agenda> getArquivoPaginaPrincipal() {
 		return agendas;
 	}
 	
-
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Agenda> getAgendasPassadas() {
+		JPAUtil jpa = new JPAUtil();
+		EntityManager em = jpa.getEm();
+		em.getTransaction().begin();
+		Query query = em.createNativeQuery("SELECT * FROM Agenda e where e.data <= ? order by datahora desc", Agenda.class);
+		query.setParameter(1, dataStr);
+		List<Agenda> agendas = (List<Agenda>) query.getResultList();
+		return agendas;
+	}
+	
 	@Override
 	public void remove(Agenda agenda) {
 		// TODO Auto-generated method stub

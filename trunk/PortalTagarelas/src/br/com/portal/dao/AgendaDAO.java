@@ -13,4 +13,5 @@ public interface AgendaDAO {
 	    public void remove(Agenda agenda);
 	    public void update(Agenda agenda);
 	    public List<Agenda> getAgendasRecentes();
+	    public List<Agenda> getAgendasPassadas();
 }
