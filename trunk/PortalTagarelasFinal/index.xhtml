@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templatePortal.xhtml">
+	<ui:define name="conteudo">
+    <f:view encoding="ISO-8859-1">  
+    <br clear="all"/>
+    <h:form acceptcharset="ISO-8859-1">
+	<div id="banner">
+				<div id="bannerConteudo">
+                	<div id="botoesBanner">
+                    	<h2>Torne a sua aula mais interativa!</h2>
+							<p>1º - Escolha uma <h:link outcome="dinamica">Dinâmica&nbsp;</h:link>para realizar com a sua turma.</p>
+							<p>2º -<h:link outcome="agendar">Agende</h:link> uma sessão com o uso de um&nbsp;
+                            <h:link outcome="sistemas">sistemas</h:link> de bate-papo.</p>
+							<p>3º -<h:link outcome="analise">Analise</h:link> uma sessão <a href="arquivos.html">arquivada</a> que você realizou.</p><br/>
+							
+							<br clear="all"/>
+                            
+                            	<div id="botaoBannerFace">
+								<ul>
+									<li>
+                                    <h:link outcome="cadastroUsu"  class="botaoGrande botaoGrande-icon botaoGrandecadastrar"  >
+                                      Cadastra-se &nbsp;&nbsp;&nbsp;
+                         			</h:link>
+                                    </li>
+                                  <!-- <a href="#" class="botaoGrande botaoGrandeAlternativo botaoGrande-icon botaoGrande-icon-face">Logar com</a>
+                                   </li>-->
+								</ul><!-- class="button  button-alt button-icon button_face button-icon-face"-->
+							
+                            	
+                            </div>
+                            	
+                    </div>
+                    
+                    <div id="fotoBanner">
+							<img src="images/img2_med.png"/>	
+							<br clear="all"/>
+					</div>		
+                
+                </div>
+                <br clear="all"/>
+     </div>
+	
+    <div id="boxes">
+			<div id="boxesConteudo">
+						<div id="tagaBoxDinamicas">
+                        		<section>
+									<h:link outcome="dinamica" class="dynamics"><img src="images/dinamicas_min.jpg" alt="" /></h:link>
+									
+									<div class="inner">
+										<header>
+											<h2>Dinâmicas</h2>
+											<p class="subtitleBox">Dinâmicas de grupo com bate-papo</p>
+										</header>
+										
+											<ul class="sessoes">
+												<li>Entrevistas</li><p>A turma entrevista um especialista [...]</p><br/>
+												<li title="A turma discute um conjunto pré-definidos com os alunos">Discussão de conteúdos</li><p>A turma discute um conjunto pré [...]</p><br/>
+												<li>Debate</li><p>Os participantes debatem o tema [...]</p>
+											</ul>
+											<br/><br/>
+										<h:link outcome="dinamica" class="botaoGrande botaoGrande-icon botaoGrandeIconPaper botaoGrandeDinamicas">
+										Lista Completa</h:link>
+									</div>
+								</section>
+                        </div> <!-- dinamica -->
+                        
+                        	<div id="tagaBoxAgenda">
+						
+							<!-- Box -->
+								<section>
+									<h:link outcome="listaAgenda" class="agenda"><img src="images/agenda_min.jpg" alt="" /></h:link>
+									
+									<div class="inner">
+										<header>
+											<h2>Agenda</h2>
+											<p class="subtitleBox">Agende suas próximas sessões</p>
+										</header>
+										
+											<ul class="sessoes">
+                                            	 <ui:repeat var="item" value="#{agendaBean.agendasRecentes}" varStatus="status">
+                                                 
+                                                 <li><h:outputLabel value="#{item.assunto}"/></li><p>
+                                                 <h:outputLabel value="#{item.data}">
+    												<f:convertDateTime pattern="dd/MM/yyyy" />
+    											 </h:outputLabel> - <h:outputLabel value="#{item.hora}"/>
+                                                 
+                                                 </p><br/>
+                                                 </ui:repeat>
+												
+												
+
+											</ul>
+										
+										<br/><br/>
+                                        <h:link outcome="listaAgenda"  class="botaoGrande botaoGrande-icon botaoGrandeIconPaper botaoGrandeAgenda">
+										Agendadas</h:link>
+									</div>
+								
+								</section>
+
+						</div><!-- agenda -->
+                        
+                        
+                        
+                        <div id="tagaBoxSistemas">
+						
+							<!-- Box -->
+								<section>
+									<h:link outcome="sistemas" ><img src="images/sistemas_min.jpg" alt="" /></h:link>
+									
+									<div class="inner">
+									
+										<header>
+											<h2>Sistemas</h2>
+											<p class="subtitleBox">Sistemas de bate-papo</p>
+										</header>
+										
+											<ul class="sessoes">
+												<li>Típico</li><p>Bate-papo típico</p><br/>
+												<li>DebatePapo</li>
+												<p>Debate de conteúdo</p><br/>
+												
+											</ul>
+											
+										<br/><br/>
+									<h:link outcome="sistemas"   class="botaoGrande botaoGrande-icon botaoGrandeIconPaper botaoGrandeSistemas">Lista Completa</h:link>
+									</div>
+								</section>
+
+						</div> <!-- sistemas -->
+						
+			<br clear="all"/>	
+             </div> <!-- fim das box da primeira linha -->
+             
+             
+             	<div id="boxesConteudo2">
+						<div id="tagaBoxArquivo">
+                        
+                        	<section>
+									<a href="#"><img src="images/arquivo_min.jpg" alt="" /></a>
+									
+									<div class="inner">
+										<header>
+											<h2>Arquivos</h2>
+											<p class="subtitleBox">Arquivos de sessões passadas</p>
+										</header>
+										
+											<ul class="sessoes">
+												<li>Mapeamento Sistemático da Literatura</li><p>30/11/2012 - 321 msg</p><br/>
+												<li>DPW2012.1 - Revisão sober JavaScript</li><p>28/11/2012 - 506 msg</p><br/>
+												<li>Coding DOJO [...]</li><p>26/11/2012 - 37 msg</p>
+											</ul>
+											<br/><br/>
+										
+										<a href="dinamicas.html" class="botaoGrande botaoGrande-icon botaoGrandeIconPaper botaoGrandeArquivos">Lista Completa</a>
+									</div>
+								</section>
+
+                        </div> <!-- fim box arquivos -->
+                        
+                        <div id="tagaBoxAnalise">
+						
+							<!-- Box -->
+								<section>
+									<a href="#"><img src="images/analises_min.jpg" alt="" /></a>
+									
+									<div class="inner">
+										<header>
+											<h2>Análise</h2>
+											<p class="subtitleBox">Registros de sessão de bate-papo</p>
+										</header>
+										
+											<ul class="sessoes">
+												<li>RelatePapo</li><p>Relatório da sessão</p><br/>
+												<li>Analítico</li><p>Análise do Discurso</p><br/>
+												<li>Visu</li><p>Visualizações Gráficas</p>
+
+											</ul>
+										
+										<br/><br/>
+										<a href="agenda.html"  class="botaoGrande botaoGrande-icon botaoGrandeIconPaper botaoGrandeAnalises">Lista Completa</a>
+									</div>
+								
+								</section>
+
+						</div><!-- fim analise -->
+                        
+                        <div id="tagaBoxPublicacoes">
+						
+							<!-- Box -->
+								<section>
+									<a href="#"><img src="images/publicacoes_min.jpg" alt="" /></a>
+									
+									<div class="inner">
+									
+										<header>
+											<h2>Publicacoes</h2>
+											<p class="subtitleBox">Publicações sobre bate-papo na educação</p>
+										</header>
+										
+											<ul class="sessoes">
+												<li>Tagarelas: Portal de Bate-papo para Educação</li><p>2012, SBIE</p><br/>
+												<li>TABSCHAT: Organizando os assuntos para um debate educacional</li>
+										    <p>2010, Dissertação</p><br/>
+												<li>Modelo de Participação em Bate-papo</li><p>2012, SBSC</p>
+											</ul>
+											
+										<br/><br/>
+										<a href="sistemas.html"  class="botaoGrande botaoGrande-icon botaoGrandeIconPaper botaoGrandePublicacoes">Lista Completa</a>
+									</div>
+								</section>
+
+						</div> <!-- fim pubicacao -->
+                        
+                        
+                        	<br clear="all"/>		
+                 </div><!-- fim do box 2-->
+                 
+                 <div id="rodape">
+		
+		
+		<footer>
+					<div id="rodapeConteudo" >
+								<section> <!-- class="widget-contact last" -->
+									<h2>Portal Tagarelas - Grupo ComunicaTec</h2>
+									
+									
+									<ul>
+										<!--<li><a href="#" class="facebook">Facebook</a></li>-->
+										<li>
+                                      <iframe src="http://www.facebook.com/plugins/like.php?href=https://www.facebook.com/portaltagarelas&amp;layout=standard&amp;show_faces=false&amp;width=380&amp;action=like&amp;colorscheme=light&amp;height=25&amp;locale=pt_BR" scrolling="no" frameborder="0" style="color: #fff!important; border:none; overflow:hidden; width:250px; height:25px;" allowTransparency="true"></iframe>
+                                        </li>
+										
+										<li><a href="https://plus.google.com/101160155498650278721" rel="publisher">Nossa Página no Google+</a></li>
+										<!--<li><a href="#" class="dribbble">Dribbble</a></li>-->
+										<!--<li><a href="#" class="googleplus">Google+</a></li>-->
+									</ul>
+									
+									<br/><br/>
+								</section>
+						
+					</div>
+					
+				</footer>
+		
+				
+		<br clear="all"/>
+	</div>
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+    </div>
+    
+    
+	</h:form>
+    </f:view>
+	</ui:define>
+	
+	
+</ui:composition>
+</html>

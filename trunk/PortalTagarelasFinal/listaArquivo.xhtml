@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+ <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+<h:head>
+	<title>Portal ComunicaTec</title>
+</h:head>
+<h:body>
+	
+<div style="position: absolute; width: 100%; height: 100px; z-index: 1; left: 11px; top: 120px"	id="iii">
+		<h:form>
+<table width="200" border="0">
+  <tr>
+    <td><span class="titulo cadastro">Cadastre-se</span></td>
+  </tr>
+</table>
+ <table width="536" border="0">
+   <tr>
+     <td width="204" align="right"><font face="Arial">Nome</font>:</td>
+     <td width="316"><h:inputText id="input-nome"  size="48" style="float: left" value="#{cadastroUsuarioBean.nome}" /></td>
+   </tr>
+   <tr>
+     <td align="right"><font face="Arial">Sobrenome</font>:</td>
+     <td><h:inputText id="input-sobrenome" size="48" style="float: left" value="#{cadastroUsuarioBean.sobreNome}"  /></td>
+   </tr>
+   <tr>
+     <td align="right"><font face="Arial">Seu E-mai</font>:</td>
+     <td><h:inputText id="input-email" size="48" style="float: left" value="#{cadastroUsuarioBean.email}"/></td>
+   </tr>
+   <tr>
+     <td align="right"><font face="Arial">Digite novamente o E-mail:</font></td>
+     <td><h:inputText id="input-confirmaEmail"  size="48" style="float: left" value="#{cadastroUsuarioBean.confirmaEmail}"/></td>
+   </tr>
+   <tr>
+     <td align="right"><font face="Arial">Defina Senha:</font></td>
+     <td>	<h:inputText id="input-senha"  size="48" style="float: left" value="#{cadastroUsuarioBean.senha}"/></td>
+   </tr>
+   <tr> 
+     <td colspan="2" align="right">
+     <h:commandButton value="Cadastrar Usuário" >               
+				<f:ajax event="click" render="mensagem" execute="@form" listener="#{cadastroUsuarioBean.cadastrarUsuario}"/>
+		</h:commandButton> 
+		<h:outputLabel id="mensagem" value="#{cadastroUsuarioBean.mensagem}"  />   
+     </td>
+     </tr>
+ </table>
+
+</h:form>
+	
+		
+		
+	</div>
+		
+	
+
+</h:body>
+</html>
