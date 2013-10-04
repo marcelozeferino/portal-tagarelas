@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//
+  DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-
+   transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<title>bate-Papo</title>
+<h:outputScript library="util" name="digitar.js" />
+
+</h:head> 
+
+<h:body>
+
+
+
+
+
+
+<p align="center"><h:messages globalOnly="true" style="color: red;" /></p>
+
+<h:panelGroup id="painelEntrada"  rendered="#{empty chatBean.apelido}">
+<h:form id="formEntrada"  >
+<p><h:outputLabel for="apelido" 
+  value="Escolha um apelido: " />
+<h:inputText id="apelido"   value="#{chatBean.apelido}" required="true" />
+<h:message for="apelido"    style="color: red;" /></p>
+<p><h:commandButton value="Entrar no Chat"   action="#{chatBean.entrar}" /></p>
+</h:form>
+</h:panelGroup>  
+
+<h:panelGroup id="painelChat" 
+ rendered="#{not empty chatBean.apelido}">
+<p>Bem-vindo ao chat, <h:outputText value="#{chatBean.apelido}" /></p>
+
+ 
+<h:form id="formChat" prependId="false" >
+
+<div id="apDiv2"  style="background-color:#FFFDE0; overflow: auto; height:270px; width:200px; padding:5px; border: 1px solid #DEDEDE; margin-bottom:10px; top: 70px; left: 430px; position: absolute;"> 
+ <ui:repeat var="elemento" value="#{salaChatBean.listaUsuarios}" varStatus="status">
+    <h:outputText  value="#{elemento.nomeUsuario}"  />
+    <br/>
+  </ui:repeat>
+</div>
+
+  <div class="scroll" style="background-color:#FFFDE0; overflow: auto; height:270px; width:400px; padding:5px; border: 1px solid #DEDEDE; margin-bottom:10px; top: 70px; position: absolute;">
+    <h:outputText value="#{salaChatBean.conversa}" escape="false" />
+  </div>
+  <div id="caixaDeMensagens" style="background-color:#FFFDE0; position:absolute; overflow: auto; height:270px; width:200px; padding:5px; border: 1px solid #DEDEDE; margin-bottom:10px; top:70px; left:654px; position: absolute;"></div>
+<br />
+<div  style="top: 358px; left: 10px; position: absolute; width: 414px; height: 28px; background-color: #FFFFFF; layer-background-color: #FFFFFF; border: 1px none #000000;">
+
+<h:inputText size="60" id="caixaMensagens"  value="#{chatBean.mensagem}" onkeypress="return VerificaKeypress(event)"
+																			  onKeyUp="return VerificaKeyUp(event)"
+																			  onKeyDown="return VerificaKeyDown(event)"/> 
+</div>
+<div style="top: 360px; left: 434px; position: absolute; width: 72px; height: 24px;">
+<h:commandButton action="#{chatBean.enviarMensagem}"  value="Enviar" onClick="enviaMensagem()" />
+</div>
+
+</h:form>
+</h:panelGroup>
+
+</h:body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templatePortal.xhtml">
+	<ui:define name="conteudo">
+	 <h:form enctype="multipart/form-data" prependId="false">  
+  
+    <p:messages showDetail="true"/>  
+  
+   
+  
+  
+   <table width="536" border="0">
+   <tr>
+     <td width="204" align="right"><font face="Arial">Nome</font>:</td>
+     <td width="316"><h:inputText id="input-nome"  size="48" style="float: left" value="#{cadastroUsuarioBean.nome}" /></td>
+   </tr>
+   <tr>
+     <td align="right"><font face="Arial">Sobrenome</font>:</td>
+     <td><h:inputText id="input-sobrenome" size="48" style="float: left" value="#{cadastroUsuarioBean.sobreNome}"  /></td>
+   </tr>
+   <tr>
+     <td align="right"><font face="Arial">Seu E-mai</font>:</td>
+     <td><h:inputText id="input-email" size="48" style="float: left" value="#{cadastroUsuarioBean.email}"/></td>
+   </tr>
+   <tr>
+     <td align="right"><font face="Arial">Digite novamente o E-mail:</font></td>
+     <td><h:inputText id="input-confirmaEmail"  size="48" style="float: left" value="#{cadastroUsuarioBean.confirmaEmail}"/></td>
+   </tr>
+   <tr>
+     <td align="right"><font face="Arial">Defina Senha:</font></td>
+     <td>	<h:inputText id="input-senha"  size="48" style="float: left" value="#{cadastroUsuarioBean.senha}"/></td>
+   </tr>
+    <tr>
+     <td align="right"><font face="Arial">Defina Senha:</font></td>
+     <td>	 <p:fileUpload value="#{cadastroUsuarioBean.file}" mode="simple"/>  </td>
+   </tr>
+   
+   <tr> 
+     <td colspan="2" align="right">
+      <p:commandButton value="Submit" ajax="false"  
+                actionListener="#{cadastroUsuarioBean.cadastrarUsuario}"/>  
+     </td>
+     </tr>
+ </table>
+  
+  
+           
+    
+ </h:form>
+	</ui:define>
+	<ui:define name="rodape">
+	    Add your content here or delete to use the default
+	</ui:define>
+	
+</ui:composition>
+</html>

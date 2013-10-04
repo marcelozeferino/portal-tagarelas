@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+    
+   		 <link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/styleTagarelas.css" />
+		<script src="js/jqueryAcordion.js"></script>
+    
+    <script type="text/javascript">
+			
+			$(document).ready(function()
+			{
+				//slides the element with class "menu_body" when paragraph with class "menu_head" is clicked 
+				$("#firstpane p.menu_head").click(function()
+				{
+					$(this).css({backgroundImage:"url(images/down.png)"}).next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
+					$(this).siblings().css({backgroundImage:"url(images/left.png)"});
+				});
+				//slides the element with class "menu_body" when mouse is over the paragraph
+				$("#secondpane p.menu_head").mouseover(function()
+				{
+					 $(this).css({backgroundImage:"url(images/down.png)"}).next("div.menu_body").slideDown(500).siblings("div.menu_body").slideUp("slow");
+					 $(this).siblings().css({backgroundImage:"url(images/left.png)"});
+				});
+			});
+		</script>
+    
+<style type="text/css">
+		.menu_list {	
+			width: 550px;
+		}
+		.menu_head {
+			padding: 5px 10px;
+			cursor: pointer;
+			position: relative;
+			margin:1px;
+			font-weight:bold;
+			/*
+			background: #eef4d3 url(images/left.png) center right no-repeat;*/
+			background: url(images/left.png) center right no-repeat;
+		}
+		.menu_body {
+			display:none;
+		}
+		.menu_body a{
+		  display:block;
+		  color:#696969;
+		  background-color:#fff;
+		  padding-left:10px;
+		  /*font-weight:bold;*/
+		  text-decoration:none;
+		  line-height: 1.5em;
+		  font-size: 13px;
+		}
+		.menu_body a:hover{
+		  color: #000000;
+		  text-decoration:underline;
+		  }
+		.menu_body p{
+		  display:block;
+		  color:#696969;
+		  background-color:#fff;
+		  padding-left:10px;
+		  line-height: 1.5em;
+		  font-size: 13px;
+		}		
+
+		
+		  
+		.textGrande{
+			font-size: 12px;
+			line-height: 2em;
+			font-weight: bold;
+		}
+		
+		.textGrande li{
+			/*margin-bottom: 25px;*/
+			
+		}
+		
+		a .listaSistemas{
+			color: #000;
+		}
+		</style>
+
+<ui:composition template="/templatePortal.xhtml">
+	
+    <ui:define name="conteudo">
+	
+    
+<div id="bannerForm">
+				<div id="bannerConteudo">
+					
+						<!--<div id="faceCadatro">
+							<br clear="all">
+							<div id="botaoBannerFace">
+							<img src="images/sistemas_min_interna.jpg"/>
+							</div>
+						</div>-->
+						
+						
+						
+						<div id="tituloPrincipal">
+							
+							<h2>Entrevista online</h2>
+							<br/>
+							
+							<img src="images/dinamicasInterna.jpg"/>
+							<p>Entrevista é uma conversação em que o entrevistador faz perguntas para obter informação do entrevistado.
+A entrevista online é a realização de entrevistas geralmente por meio de bate-papo.
+</p>
+							
+							
+								
+							<br clear="all"/>
+							
+							
+							<br clear="all"/>
+						</div>	
+							
+<div id="conteudoPagfull">
+							<div id="listaSistemas">
+							
+<!-- Box -->
+								<section>
+									
+											<ul>
+												<!--<li><a href="#" class="botaoGrande botaoGrande-icon botaoGrandecadastrar">Concluir</a></li>-->
+											<li><p>&#187; <a href="#social">Entrevista online enquanto prática social</a></p></li>
+												<li><p>&#187; <a href="#educacao">Entrevista na educação</a></p></li>
+                                                <li><p>&#187; <a href="#papo">Entrevista por bate-papo</a></p></li>
+                                                 <li><p>&#187; <a href="#tipo">Tipos de Entrevista</a></p></li>
+                                                    <li><p>&#187; <a href="#processo">Processo</a></p></li>
+                                                    <li><p>&#187; <a href="#preparacao">Preparação</a></p></li>
+                                                     <li><p>&#187; <a href="#realizacao">Realização</a></p></li>
+                                                      <li><p>&#187; <a href="#analise">Análise</a></p></li>
+                                                            <li><p>&#187; <a href="#referencias">Referências</a></p></li>
+											</ul>
+											
+											<br/><br/><br/>
+										
+											<a name='social'></a>
+										
+											
+											<p class="textGrande">Entrevista online enquanto prática social</p>
+																					
+											<ul>
+												
+												<li><p> <strong>Entrevista</strong>  é uma prática realizada para diferentes finalidades: na tv, entrevistadores convidam celebridades para conversar sobre fofocas, cotidiano e projetos artísticos, ou convidam especialistas para conversar sobre algum assunto de interesse; repórteres entrevistam pessoas para obter declarações sobre um evento ocorrido que será transformado em notícia; pedquisadores entrevistam para conseguir investigar a subjetividade dos sujeitos com relação a um objeto de pesquisa.	 <br />
+												  <strong>Entrevista online </strong> já se tornou uma prática principalmente  associada a programas de TV ou a portais da Internet para o público poder  entrevistar celebridades e especialistas. Por exemplo, no portal Globo,  entrevistas online são realizadas diariamente, geralmente vinculadas a algum  programa da TV Globo, como as realizadas ao final de cada Fantástico, ou após a  eliminação de cada participante no BBB, ou em algum site ou revista que faça  parte do conteúdo disponibilizado naquele portal. Na seção Bate-papo com  convidados do portal UOL são agendadas, realizadas e arquivadas entrevistas com  personalidades, sendo algumas entrevistas transmitidas ao vivo pela TV UOL-  esse portal é um dos pioneiros na realização de entrevistas online por meio de  bate-papo no Brasil, com registros de entrevistas a partir de 1996.<br />
+												A entrevista online em comparação com a  entrevista face-a-face, identifica-se que ambam possibilitam o mesmo  entendimento da circunstância social estudada, sendo que a entrevista on-line  via bate-papo é tão eficaz quanto as entrevistas tradicionais</p></li>
+											</ul>
+											
+											
+										
+											<br/><br/>
+											
+											
+											
+											<a name='educacao'></a>
+											<p class="textGrande">Entrevista na educação</p>
+																					
+											<ul>
+												
+												<li> <p>A   entrevista, é uma das técnicas mais conhecidas de trabalho em grupo.  Nesse contexto, o grupo pode ser a turma e o entrevistado,  algum convidado especial ou o próprio  professor. Essa dinâmica educacional, auxilia o professor a criar um ambiente  de construção de conhecimento vivo, não estruturado e o aluno poder fazer  perguntas sem ser censurado. Além de estimular o raciocínio, ela promove a  colaboração; desenvolve o senso questionador; a arte de perguntar; contribui  para o desenvolvimento da informalidade, espontaneidade, raciocínio, atenção,  sendo considerado um recurso didático de exposição de conteúdo. Entretanto, é  necessário que o professor prepare a turma antes da sessão para que ela esteja  familiarizada com o tema que será abordado na entrevista</p></li>
+											</ul>
+											
+											
+										
+											<br/><br/>
+										
+									
+                                    <a name='papo'></a>
+											<p class="textGrande">Entrevista por bate-papo</p>
+																					
+											<ul>
+												
+												<li> <p>As entrevistas <em>on-line</em> por meio de bate-papo,   permitem  adotar um estilo  cotidiano, informal, em que os erros são mais facilmente aceitos. A Internet é  vista como um ambiente seguro, evitando o embaraço típico das interações face à  face. Essas  entrevistas, encontram-se  limitadas à habilidade e à velocidade de digitação dos participantes, a um  tempo mínimo de resposta e a uma competição pela atenção do respondente,  fazendo com que seus esforços sejam mínimos resultando em postagens breves e  com poucas palavras</p></li>
+											</ul>
+											
+											
+										
+											<br/><br/>
+                                    
+                                    
+                                     <a name='tipo'></a>
+											<p class="textGrande">Tipos de Entrevista</p>
+																					
+											<ul>
+												
+												<li> <p><strong>Entrevista  para a produção de conteúdo:</strong>  A  entrevista para a produção de conteúdo pode  trazer inúmeras contribuições para a comunidade profissional. Em um mundo  baseado em conhecimento como diferencial competitivo, ter suas impressões e  experiências disponíveis pode oferecer   aos clientes e parceiros uma porta diferenciada para os negócios.<br />
+	    <br />
+	    <strong>Entrevista  motivacional:</strong> É  uma abordagem terapêutica que auxilia na mudança de comportamento. Dentre  algumas dessas mudanças podemos citar tentativas para abandonar algum tipo de  vício como drogas, álcool, tabaco, bem como reducação alimentar, auxílio à  menores infratores, adolecentes e etc  <br />
+	    <br />
+	    <strong>Entrevista  para seleção de pessoal:</strong> A  entrevista para a seleção de pessoal tem como objetivo fazer com que tanto o  candidato como a empresa se conheçam melhor. Dessa forma, o entrevistado tem a  chance de se apresentar oficialmente à empresa e a empresa também adquire um  conhecimento mais aprofundado sobre o candidato ao cargo<br />
+	    <br />
+	    <strong>Entrevista  para trabalhos científicos:</strong> A entrevista, tem sido cada vez mais utilizada  em trabalhos científicos. Ela permite que pesquisadores  possam extrair  grande quantidades de dados e informações  aumentando a riqueza de seu trabalho.Essa técnica, desempenha um papel vital  para um trabalho científico se combinada a outros métodos de coleta de dados,  intuições e percepções, melhorando a qualidade de um levantamento e de sua  interpretação<br />
+	    <br />
+	    <strong>Entrevista de Oposição: </strong>Esse tipo de entrevista, muitas vezes  conhecida como “advogado do diabo”, geralmente é uma  maneira rápida de fazer com que o  entrevistado aponte claramente a sua opinião dando uma resposta bastante  persuasiva.<br />
+	    <br /><br/>
+                                    
+                                        <a name='processo'></a>
+											</p>
+												</li>
+											</ul>
+											
+											
+										
+											<p class="textGrande">Processo</p>
+																					
+											<ul>
+												
+												<li> <p>O entrevista online é composto por:
+<br />
+	    <br />
+        
+           
+      
+       <strong>Entrevistador  (entrevistadores)</strong> – É a pessoa que se  encarrega de fazer as perguntas aos especialistas<strong>. </strong>Também é responsável por dirigir o conteúdo da entrevista, tomar  a iniciativa e reformular os questionários de acordo com as respostas.<strong></strong><br />
+	    <br />
+        
+        
+       
+       <strong>Especialista  ou entrevistado </strong>– É a pessoa que deve  responder  às questões propostas. Em  geral, faz-se a mesma pergunta a cada entrevistado. Ao final, se o tempo ou a  estrutura da entrevista permitir, perguntas podem ser feitas por intermédio do coordenador.<strong></strong></p></li>
+											    
+											                                                     
+                                             
+                                                    <li><strong>Coordenador  – </strong>É a pessoa que atua como moderador, que  dá a palavra, decide procedimentos, programa a hora e o momento de falar, o  início e término da sessão.<strong></strong></li>
+                                                
+											 
+											</ul>
+											
+											
+										
+											<br/><br/>
+                                            
+                                               <a name='preparacao'></a>
+											<p class="textGrande">Preparação</p>
+																					
+											<ul><li>
+											  <p>O  moderador do processo, tem como tarefas principais, convidar entrevistado e entrevistadores  e preparar o roteiro para o entrevistado ( possíveis perguntas e perfil dos  entrevistadores) e para os entrevistadores, fornecendo-lhes o conteúdo básico  para  prepara-los sobre um determinado  tema. Dessa forma, entrevistado e entrevistadores podem se preparar  adequadamente para a entrevista.</p>
+											</li>
+											</ul>
+											
+											
+										
+											<br/><br/>
+                                            
+                                              <a name='realizacao'></a>
+											<p class="textGrande">Realização</p>
+																					
+											<ul>
+												
+												<li> <p>Para  a realização da sessão entrevista, é utilizada uma ferramenta computacional. O  mediador apresenta o entrevistado, inicia e finaliza a sessão. Os  entrevistadores podem conversar com o entrevistado e entre si durante a sessão,  como forma de socialização. Entrevistadores enviam perguntas diretamente para o  entrevistado.</p>
+												</li>
+											</ul>
+											
+											
+										
+											<br/><br/>
+                                            
+                                              <a name='analise'></a>
+											<p class="textGrande">Análise</p>
+																					
+											<ul>
+												
+												<li> <p>Após  o término da entrevista, é necessário realizar   a sua transcrição e análise. Este processo geralmente demanda um tempo  muito grande mas se faz necessário pois algumas informações podem passar  desapercebidas ou mesmo serem incompreendidas, o que poderia exigir uma nova  entrevista com o entrevistado. </p></li>
+											</ul>
+											
+											
+										
+											<br/><br/>
+                                            
+                                              <a name='referencias'></a>
+											<p class="textGrande">Referências</p>
+																					
+											<ul><li>
+											  <p> Minicucci, A.,(2001) – Técnicas de   Trabalho em grupo, Editora Atlas, 3. Edição.<br />
+											    OLIVEIRA, M.O.R., REGO, B.B., ALVES,  D.A. Uma Comparação entre Entrevistas Face-To-Face e Entrevistas On-Line via  Chat aplicando a técnica de laddering. <a href="http://seer.uscs.edu.br/index.php/revista_gestao/article/view/195">http://seer.uscs.edu.br/index.php/revista_gestao/article/view/195</a><img border="0" width="15" height="12" src="dinamicasEntrevista_clip_image001.png" /> Acessado em 21  outubro de 2012.<br/>
+											    Júnior,  A., Júnior,  Nazer., (2011) –A utilização  da Técnica da Entrevista em trabalhos Científicos<br />
+											    Nunes,R.,  Barbosa, C.V., Pimentel, M. –Técnica Entrevista como Dinâmica Educacional –  SBSI 2008 –XIX Simpósio Brasileiro de Informática na Educação.<br />
+											    NICOLACI-DA-COSTA,  A.M., ROMAO-DIAS, D., DI LUCCIO, F. Uso de entrevistas on-line no método de  explicitação do discurso subjacente (MEDS). Psicologia: Reflexão e Crítica,  v.22, n.1, 2009, p.36-43. http://dx.doi.org/ 10.1590/S0102-79722009000100006  Acessado em 21 outubro de 2012.<br />
+											    <br/>                         
+	   </p>
+											  </li>
+											</ul>
+											
+											
+										
+											<br/><br/>
+								</section>
+					  </div>
+							
+				  </div>
+
+									
+						
+						<br clear="all"/>
+				</div>
+				
+				<br clear="all"/>
+				
+			</div>
+			
+			
+			<!-- boxes fim da segunda linha -->
+			
+			
+
+  </ui:define>
+	<ui:define name="rodape">
+	   
+	</ui:define>
+	
+</ui:composition>
+</html>
