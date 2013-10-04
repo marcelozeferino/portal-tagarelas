@@ -1,0 +1,103 @@
+#content {
+	position:relative;
+	width: 100%;
+}
+
+#content #header {
+position: relative;
+float: left;
+height: 48px;
+background: #ffffff url(../img/logo_tagarelas.jpg) no-repeat; 
+padding-left: 270px; 
+padding-top: 10px;
+font-family: Calibri;
+font-size: 25px;
+background-color: #fff;
+/*width: 100%;*/
+width: 80%;
+/*border: 1px solid #ff0000;*/
+}
+
+#content #onlineListContainer {
+position: relative;
+float: left;
+background-color: #F9F9F9;
+/*width: 248px;*/
+width: 18.2%;
+
+min-height: 600px;
+/*border: 1px solid #ff0000;*/
+border-right: 2px solid #E5E6E8;
+}
+
+#content #onlineListContainer ul {
+	list-style-type: none;
+	font-family: Calibri;
+	padding-left: 7px;
+	list-style-type: none;
+}
+
+#content #onlineListContainer ul  li{
+	margin-top: 13px;
+}
+
+#content #mostra{
+position: relative;
+float: right;
+background-color: #fff;
+/*width: 1096px;*/
+width: 81%;
+min-height: 467px;
+height: 467px;
+display: block;
+overflow: auto;
+/*border: 1px solid #ff0000;*/
+
+}
+
+#content #chatSendBox{
+position: relative;
+float: right;
+background-color: #D9DADC;
+/*width: 1081px;*/
+width: 80%;
+min-height: 116px;
+/*border: 1px solid #ff0000;*/
+padding-left: 15px;
+padding-top: 15px;
+color: #800001;
+font-family: Calibri;
+}
+
+#content #emoticonsContainer {
+
+}
+
+#content #mostra ul {
+	list-style-type: none;
+	font-family: Calibri;
+	/*font-size: 25px;*/
+
+}
+
+#content #mostra .impar{
+	/*background-color: #EDEAEA;*/
+	border-bottom: 1px solid #EDEAEA;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+#content #mostra .par{
+	/*background-color: #FFFCFC;*/
+	background-color: #FFF;
+	border-bottom: 1px solid #EDEAEA;
+}
+
+#content #mostra div {
+
+}
+
+.user{
+	color: #800001;
+	/*background-color: #696969;*/
+}

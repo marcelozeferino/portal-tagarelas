@@ -1,0 +1,312 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<title>Portal Tagarelas - Sistemas</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		
+		<link href='http://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/styleTagarelas.css" />
+		<script src="js/jqueryAcordion.js"></script>
+		
+		<script type="text/javascript">
+			
+			$(document).ready(function()
+			{
+				//slides the element with class "menu_body" when paragraph with class "menu_head" is clicked 
+				$("#firstpane p.menu_head").click(function()
+				{
+					$(this).css({backgroundImage:"url(images/down.png)"}).next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
+					$(this).siblings().css({backgroundImage:"url(images/left.png)"});
+				});
+				//slides the element with class "menu_body" when mouse is over the paragraph
+				$("#secondpane p.menu_head").mouseover(function()
+				{
+					 $(this).css({backgroundImage:"url(images/down.png)"}).next("div.menu_body").slideDown(500).siblings("div.menu_body").slideUp("slow");
+					 $(this).siblings().css({backgroundImage:"url(images/left.png)"});
+				});
+			});
+		</script>
+		
+		
+		<style type="text/css">
+		.menu_list {	
+			width: 550px;
+		}
+		.menu_head {
+			padding: 5px 10px;
+			cursor: pointer;
+			position: relative;
+			margin:1px;
+			font-weight:bold;
+			/*
+			background: #eef4d3 url(images/left.png) center right no-repeat;*/
+			background: url(images/left.png) center right no-repeat;
+		}
+		.menu_body {
+			display:none;
+		}
+		.menu_body a{
+		  display:block;
+		  color:#696969;
+		  background-color:#fff;
+		  padding-left:10px;
+		  /*font-weight:bold;*/
+		  text-decoration:none;
+		  line-height: 1.5em;
+		  font-size: 13px;
+		}
+		.menu_body a:hover{
+		  color: #000000;
+		  text-decoration:underline;
+		  }
+		.menu_body p{
+		  display:block;
+		  color:#696969;
+		  background-color:#fff;
+		  padding-left:10px;
+		  line-height: 1.5em;
+		  font-size: 13px;
+		}		
+
+		
+		  
+		.textGrande{
+			font-size: 12px;
+			line-height: 2em;
+			font-weight: bold;
+		}
+		
+		.textGrande li{
+			/*margin-bottom: 25px;*/
+			
+		}
+		
+		a .listaSistemas{
+			color: #000;
+		}
+		</style>
+		
+			
+		
+		<script>
+			function aumenta(div1, div2) { 
+						
+				var el = document.getElementById(div1);
+				var result = el.style.height;
+				result = parseInt(result.split("px", 1));
+				result += 200;
+				el.style.height = result + "px";
+				
+				var el = document.getElementById(div2);
+				var result = el.style.height;
+				result = parseInt(result.split("px", 1));
+				result += 200;
+				el.style.height = result + "px";
+				
+			}
+		</script>		
+		
+		
+						
+	</head>
+	
+	<body>
+	
+	<!-- barra Superior com login -->
+		<div id="barraRed">
+			<div id="barraConteudo">
+				
+				<div id="barraForm">
+					<form id="barraLoginForm" action="#" method="post" onsubmit="">
+						<label for="email">E-mail</label> <input name="email" id="email" tabindex="1" type="text" class="caixaTexto"> &nbsp;
+						
+						<label for="senha">Senha</label> <input name="senha" id="pass" tabindex="2" type="password" class="caixaTexto">
+						
+						<label class="botoes" for="botaoEntrar"><input id="botaoEntrar" value="Entrar" tabindex="3" type="submit"></label>
+						
+						<label for="mantenhaConectado"><input class="Checkbox" name="mantenhaConectado" value="1" tabindex="4" type="checkbox">Mantenha-me conectado</label>
+						
+						&nbsp;|&nbsp; <a class="linkBranco" rel="nofollow" href="#">Esqueceu sua senha?</a>						
+				</div>
+				
+				<div id="barraBotoes">
+						<label class="botoes" for="botaoCadastro"><input value="Cadastre-se" id="botaoCadastro" tabindex="5" type="submit"></label>
+						<label class="botoes botoesFace" for="botaoFacebook"><input value="Logar com Facebook" id="botaoFacebook" tabindex="6" type="submit"></label>
+					</form>
+				</div>
+				
+			</div>
+		</div>
+	<!--  / Fim da barra Superior -->
+	
+	
+	
+	<div id="container"> 
+		
+		<div id="containerConteudo">
+			
+			
+			<!-- Header -->
+				<header>
+					<div id="logo"> <!-- style="border: 1px solid #00ff00;" -->
+						<img src="images/logofinalTaga.png" alt="Portal Tagarelas" title="Portal Tagarelas">
+						<!--<h1>Tagarelas Logo</h1>-->
+					</div>
+					
+					<div id="menuPrinc">
+						<nav id="navTagarelas">
+							<ul> 
+								<li><a class="dynamics" href="dinamicas.html">dinâmicas<br><div id="tabDynamics"></div></a></li>
+								<li><a class="system" href="sistemas.html">sistemas<br><div id="tabSystem"></div></a></li>
+								<li><a class="agenda" href="agenda.html">agenda<br><div id="tabAgenda"></div></a></li>
+								<li><a class="file" href="arquivo.html">arquivo<br><div  id="tabFile"></div></a></li>
+								<li><a class="analysis" href="analise.html">análise<br><div id="tabAnalysis"></div></a></li>
+								<li><a class="publication" href="puclicacoes.html">publicações<br><div id="tabPublication"></div></a></li>
+							</ul> 
+						</nav>
+					</div>
+					
+				</header>
+			
+			
+			<br clear="all">
+			
+			<div id="bannerForm">
+				<div id="bannerConteudo">
+					
+						<!--<div id="faceCadatro">
+							<br clear="all">
+							<div id="botaoBannerFace">
+							<img src="images/sistemas_min_interna.jpg"/>
+							</div>
+						</div>-->
+						
+						
+						
+						<div id="tituloPrincipal">
+							
+							<h2>Sistemas</h2>
+							<br>
+							
+							<img src="images/sistemas_min_interna.jpg"/>
+							<p>Fusce nec turpis sed mi luctus vehicula at vitae urna. Quisque in ligula vitae eros egestas vestibulum a non nibh. Etiam aliquam, risus vel placerat lobortis, magna ligula fermentum lacus, vel lacinia libero lacus tincidunt enim. Maecenas accumsan vehicula felis, a porta augue vulputate nec. Donec condimentum vestibulum quam, at pharetra nibh facilisis at. Aliquam sed sagittis tellus. Proin molestie metus nec neque sodales, sit amet sagittis tellus tristique. Pellentesque ac pellentesque nulla, et tincidunt nibh. Mauris adipiscing accumsan ligula nec sollicitudin. </p>
+							
+							
+								
+							<br clear="all">
+							
+							
+							<br clear="all">
+						</div>	
+							
+						<div id="conteudoPagfull">
+							<div id="listaSistemas">
+							
+<!-- Box -->
+								<section>
+									
+											<ul>
+												<!--<li><a href="#" class="botaoGrande botaoGrande-icon botaoGrandecadastrar">Concluir</a></li>-->
+												<li><p>&#187; <a href="#tipico">Bate-papo Típico</a></p></li>
+												<li><p>&#187; <a href="#debate">Debate-papo</a></p></li>
+												
+											</ul>
+											
+											<br><br><br>
+											<a name=tipico></a>
+											
+											<p class="textGrande">Bate-papo típico</p>
+																					
+											<ul>
+												
+												<li><img src="images/tipicoMini.jpg"/> <p>Praesent varius nulla id ullamcorper dignissim. Quisque sed dignissim augue. Cras quis malesuada justo. Praesent et tellus et mauris vulputate elementum. Pellentesque ut nisi vel ante vulputate blandit sit amet vel est. Duis suscipit gravida suscipit. Quisque molestie neque in elementum viverra. Fusce fringilla enim in convallis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a accumsan felis, quis consectetur tortor. Aenean ultrices elit nulla, in ornare felis mollis vel. Phasellus dapibus risus quis facilisis bibendum. Quisque tempor augue sit amet massa laoreet, id dignissim purus pulvinar. Vivamus eget sodales est.<br><br>
+
+			Integer hendrerit consequat dolor, quis mattis nisi faucibus in. Curabitur interdum molestie lacus, id adipiscing diam elementum nec. Nulla nec lobortis elit. Cras est erat, lacinia sit amet ultrices id, consectetur ut lectus. Aliquam eget orci ac mauris eleifend rutrum. Praesent aliquet, velit eu mollis varius, nulla arcu ultrices leo, ac tempor lorem libero non magna. Donec tempor dictum augue non imperdiet. </p></li>
+												
+											</ul>
+											
+											
+										
+											<br><br>
+											
+											
+											<a name=debate></a>
+											
+											<p class="textGrande">Debate-papo</p>
+																					
+											<ul>
+												
+												<li><img src="images/tipicoMini.jpg"/> <p>Praesent varius nulla id ullamcorper dignissim. Quisque sed dignissim augue. Cras quis malesuada justo. Praesent et tellus et mauris vulputate elementum. Pellentesque ut nisi vel ante vulputate blandit sit amet vel est. Duis suscipit gravida suscipit. Quisque molestie neque in elementum viverra. Fusce fringilla enim in convallis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a accumsan felis, quis consectetur tortor. Aenean ultrices elit nulla, in ornare felis mollis vel. Phasellus dapibus risus quis facilisis bibendum. Quisque tempor augue sit amet massa laoreet, id dignissim purus pulvinar. Vivamus eget sodales est.<br><br>
+
+			Integer hendrerit consequat dolor, quis mattis nisi faucibus in. Curabitur interdum molestie lacus, id adipiscing diam elementum nec. Nulla nec lobortis elit. Cras est erat, lacinia sit amet ultrices id, consectetur ut lectus. Aliquam eget orci ac mauris eleifend rutrum. Praesent aliquet, velit eu mollis varius, nulla arcu ultrices leo, ac tempor lorem libero non magna. Donec tempor dictum augue non imperdiet. </p></li>
+												
+											</ul>
+											
+											
+										
+											<br><br>
+										
+									
+								</section>
+								
+							</div>
+							
+						</div>
+
+									
+						
+						<br clear="all">
+				</div>
+				
+				<br clear="all">
+				
+			</div>
+			
+			
+			<!-- boxes fim da segunda linha -->
+			
+			
+		<br clear="all">
+		</div>
+		
+	<div id="rodape">
+		
+		
+		<footer>
+					<div id="rodapeConteudo" >
+								<section> <!-- class="widget-contact last" -->
+									<h2>Portal Tagarelas - Grupo ComunicaTec</h2>
+									
+									
+									<ul>
+										<!--<li><a href="#" class="facebook">Facebook</a></li>-->
+										<li><iframe src="http://www.facebook.com/plugins/like.php?href=https://www.facebook.com/portaltagarelas&;layout=standard&<br>show_faces=false&width=380&action=like&colorscheme=light&height=25&locale=pt_BR" scrolling="no" frameborder="0" style="color: #fff!important; border:none; overflow:hidden; width:250px; height:25px;" allowTransparency="true"></iframe></li>
+										
+										<li><a href="https://plus.google.com/101160155498650278721" rel="publisher">Nossa Página no Google+</a></li>
+										<!--<li><a href="#" class="dribbble">Dribbble</a></li>-->
+										<!--<li><a href="#" class="googleplus">Google+</a></li>-->
+									</ul>
+									
+									<br><br>
+								</section>
+						
+					</div>
+					
+				</footer>
+		
+				
+		<br clear="all">
+	</div>
+	
+	</div>
+	
+	
+		
+		
+	</body>
+
+
+
+</html>

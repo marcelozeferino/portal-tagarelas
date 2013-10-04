@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<script type="text/javascript">
+			
+			$(document).ready(function()
+			{
+				/*$("#firstpane p.menu_head").click(function()
+				{
+					$(this).css({backgroundImage:"url(images/down.png)"}).next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
+					$(this).siblings().css({backgroundImage:"url(images/left.png)"});
+				});*/
+				
+				$('p.menu_head').click(function(){
+					$(this).parent().find('div.menu_body').slideToggle('slow');
+				});
+				
+				
+			});
+		</script>
+		
+		
+				
+		<script src="js/jquery.min.js"></script>
+		<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+		
+		
+		<link rel="stylesheet" href="css/jquery.Jcrop.css" type="text/css" />
+		
+		<script language="Javascript">
+		
+				/*$('#target').Jcrop({onChange: showPreview,onSelect: showPreview,aspectRatio: 1});*/
+				
+				 // select all desired input fields and attach tooltips to them
+				  
+				  $(document).ready(function() {
+  
+						  $("#cadastroTagarelas :input").tooltip({
+					 
+						  // place tooltip on the right edge
+						  position: "center right",
+					 
+						  // a little tweaking of the position
+						  offset: [-2, 10],
+					 
+						  // use the built-in fadeIn/fadeOut effect
+						  effect: "fade",
+					 
+						  // custom opacity setting
+						  opacity: 0.7
+					 
+						  });
+				  
+				  });
+		
+		</script>
+		
+		
+		<style type="text/css">
+		.menu_list {	
+			width: 900px;
+			padding-bottom: 20px;
+			margin-bottom: 15px;
+			border-bottom: 1px solid #666;
+		}
+		.menu_head {
+			padding: 5px 10px;
+			cursor: pointer;
+			position: relative;
+			margin:1px;
+			font-weight:normal;
+			background: url(images/down.png) center right no-repeat;
+		}
+		.menu_body {
+			display:none;
+		}
+		.menu_body a{
+		  display:inline;
+		  background-color:#666;
+		  padding-left:10px;
+		  text-decoration:none;
+		  line-height: 1.5em;
+		  font-size: 15px;
+		}
+		.menu_body a:hover{
+		  
+		  }
+		  
+		.menu_body p{
+		  display:block;
+		  color:#696969;
+		  background-color:#fff;
+		  padding-left:10px;
+		  line-height: 1.5em;
+		  font-size: 13px;
+		}		
+        
+		  
+		.textGrande{
+			font-size: 16px;
+			font-weight: bold;
+			
+		}
+		a .listaSistemas{
+			color: #000;
+		}
+		</style>
+<ui:composition template="/templatePortal.xhtml">
+	<ui:define name="conteudo">
+	
+    <div id="bannerForm">
+				<div id="bannerConteudo">
+					
+						<div id="tituloPrincipal">
+							
+							<h2>Arquivo</h2>
+							<br/>
+							
+							<img src="images/agendapeqInterna.jpg"/>
+							<p>Nesta se&ccedil;&atilde;o  est&atilde;o listadas as sess&otilde;es de bate-papo que os professores realizaram pelo Portal Tagarelas. Cada sess&atilde;o planejada pelo professor &eacute; divulgada nessa agenda p&uacute;blica. Por exemplo, o professor pode agendar uma entrevista com algum especialista no assunto a ser trabalhado com a turma. A a&ccedil;&atilde;o do professor agendar uma sess&atilde;o contribui para o planejamento das atividades educacionais online a serem realizadas na disciplina. A agenda tamb&eacute;m induz o professor a conhecer como o portal est&aacute; sendo usado antes que ele planeje sess&otilde;es em sua disciplina. O objetivo &eacute; divulgar os pr&oacute;ximos eventos e com isso tamb&eacute;m estimular um professor a agendar a sua pr&oacute;pria sess&atilde;o. </p>
+							
+						                           
+                               <!-- <c:if test="#{loginBean.usuario.idUsuario != null}">   
+     												<h:link class="botaoGrande botaoGrandeDinamicas" outcome="agendar" style="cursor: pointer;" value="Agendar Sessao">
+     	 <f:param name="idUsuarioAgenda" value="#{loginBean.usuario.idUsuario}" /> 
+      </h:link>
+     </c:if> -->     
+                             
+                             
+                             <br/>
+						</div>
+                        
+                         <br/> <br/>
+                        <div id="conteudoPagfull">
+							<div id="listaSistemas">
+								<section>
+											<p class="textGrande">Sessões Arquivadas Que Participei<br/><br/></p>
+											<div id="sessoesAgendadas">
+                                            <h:form>
+                                                 <ui:repeat var="item" value="#{sessaoBean.arquivadasParticipei}" varStatus="status">
+												<div class="menu_list"> 
+                                                
+                                                
+                                              <p class="menu_head"> <h:outputLabel value="#{item.data}">
+                                                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                                                </h:outputLabel> &nbsp;|&nbsp; <h:outputLabel value="#{item.hora}"/> &nbsp;|&nbsp;<h:outputLabel value="#{item.assunto}"/>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                               <!-- 
+                                                  <c:if test="#{loginBean.usuario.idUsuario != null}">   
+     												<h:commandLink class="botaoGrande botaoGrandeAgenda" style="cursor: pointer;" action="#{agendaBean.participarSessao}" value="Quero Participar">
+     	<f:param name="itemAgenda" value="#{item.idAgenda}" />
+     	 <f:param name="idUsuarioAgenda" value="#{loginBean.usuario.idUsuario}" /> 
+      </h:commandLink>
+     </c:if>
+      -->
+          </p>                                      
+                                            
+                                                 	 
+													
+													<div class="menu_body">
+														 
+														 <p><br/><strong>Descricao: </strong>
+                                                           <h:outputLabel value="#{item.descricao}"/> 
+                                                        
+                                                         
+                                                         <br/><br/></p>
+														<!-- <p><strong>Sistema Utilizado: </strong>Debate papo<br/></p>
+														 <p><strong>Criador da Sessao:</strong> Marcelo Estruc<br/><br/></p> --> 
+													
+														
+													</div> <!-- menu_body -->
+
+                                                
+                                                
+                                                
+												</div><!-- menu_list -->
+                                                  </ui:repeat>
+                                                  </h:form>
+                        					</div> <!-- sessoesAgendadas -->
+                      			  </section>
+
+
+
+
+
+							
+                       		 </div> <!-- listaSistemas -->
+                        </div> <!-- conteudoPagfull -->
+                        
+                        
+                  </div>	<!-- bannerConteudo -->
+                        
+        </div><!-- bannerForm -->
+    
+ </ui:define>   
+    
+    
+	<ui:define name="rodape">
+	   
+	</ui:define>
+	
+</ui:composition>
+</html>
