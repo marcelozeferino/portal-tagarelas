@@ -649,7 +649,11 @@ public Usuario usuarioLogado(Usuario usuario) {
 			  String [] urlStringSplit = a.split("WEB-INF"); 
 			  System.out.println("aqui03: " + urlStringSplit[0].toString());
 			  System.out.println("aqui1: " + url.toString());
-			  ImageIO.write(img, "JPG", new File(urlStringSplit[0].toString() + "\\imagens\\" + nomeDaImagem));
+			  
+			  if (img != null){
+				  ImageIO.write(img, "JPG", new File(urlStringSplit[0].toString() + "\\imagens\\" + nomeDaImagem));
+			  }
+			  
 			  System.out.println("aqui2: ");
 			  usuario.setUrl("imagens/" + nomeDaImagem);
 			  System.out.println("aqui3: ");
