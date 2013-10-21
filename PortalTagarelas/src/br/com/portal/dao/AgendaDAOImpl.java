@@ -274,6 +274,14 @@ public List<Agenda> getDonoSessaoArquivada(String idUsuario) {
 		return agendas;
 	}
 	
+	public List<Agenda> getAgendas() {
+		JPAUtil jpa = new JPAUtil();
+		EntityManager em = jpa.getEm();
+		em.getTransaction().begin();
+		Query query = em.createNativeQuery("SELECT * FROM agenda a order by datahora desc ", Agenda.class);
+		List<Agenda> agendas = query.getResultList();
+		return agendas;
+	}
 
 	@Override
 	public void remove(Agenda agenda) {
