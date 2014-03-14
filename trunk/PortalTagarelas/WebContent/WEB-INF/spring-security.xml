@@ -1,0 +1,90 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/security
+    http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<http auto-config="true" access-denied-page="/indexInvalido.do?error=2" use-expressions="true">
+		<!-- PARA ESPECIFICAR OS ACESSOS PERMITIDOS USAR O MÉTODO hasAnyRole() -->
+		<intercept-url pattern="/listaArquivo.do" access="isAuthenticated()" />
+		<intercept-url pattern="/listaMinhaSessao.do" access="isAuthenticated()" />
+		<intercept-url pattern="/listaMinhaSessaoGeral.do" access="isAuthenticated()" />
+		<intercept-url pattern="/listaSessaoVouParticipar.do" access="isAuthenticated()" />
+		<intercept-url pattern="/listaArquivoParticipei.do" access="isAuthenticated()" />
+		<intercept-url pattern="/agendar.do" access="isAuthenticated()" />
+		<intercept-url pattern="/cadastrarAgenda.do" access="isAuthenticated()" />
+		<intercept-url pattern="/alteracaoUsu.do" access="isAuthenticated()" />
+		<intercept-url pattern="/chatTipico.do" access="isAuthenticated()" />
+		<intercept-url pattern="/chatTipicoFullFuncionando.do" access="isAuthenticated()" />
+				
+		<!-- 
+		<intercept-url pattern="/index.do" access="isAuthenticated()" />
+		<intercept-url pattern="/sobreFgv.do" access="isAuthenticated()" />
+		<intercept-url pattern="/metodologia.do" access="isAuthenticated()" />
+		<intercept-url pattern="/comoUsar.do" access="isAuthenticated()" />
+		<intercept-url pattern="/orcamento/*.do" access="isAuthenticated()" />
+		<intercept-url pattern="/material/*.do" access="isAuthenticated()" />
+		<intercept-url pattern="/orcamento/reenviarOrcamentoEmail.do" access="isAuthenticated()" />
+		<intercept-url pattern="/referencia/telaListarReferencia.do" access="isAuthenticated()" />
+		
+		<intercept-url pattern="/usuario/telaExternaCadastrarUsuario.do" access="permitAll" />
+		<intercept-url pattern="/usuario/verificarLoginExistenteAjax.do" access="permitAll" />
+		<intercept-url pattern="/usuario/verificarEmailExistenteAjax.do" access="permitAll" />
+		<intercept-url pattern="/usuario/cadastroExternoUsuario.do" access="permitAll" />
+		<intercept-url pattern="/login.do" access="permitAll" />
+		<intercept-url pattern="/usuario/ativarUsuario.*" access="permitAll" />
+		<intercept-url pattern="/usuario/telaEsqueciSenha.do" access="permitAll" />
+		<intercept-url pattern="/usuario/reenviarSenha.do" access="permitAll" />
+		
+		<intercept-url pattern="/arquivo/*.do" access="hasRole('super_admin')" />
+		<intercept-url pattern="/referencia/telaCadastrarReferencia.do" access="hasRole('administrador', 'super_admin')" />
+		
+		<intercept-url pattern="/usuario/telaAlterarPropriosDados.do" access="hasAnyRole('usuario', 'gerente')" />
+		<intercept-url pattern="/usuario/alterarPropriosDados.do" access="hasAnyRole('usuario', 'gerente')" />
+		<intercept-url pattern="/usuario/*.do" access="hasAnyRole('gerente', 'administrador', 'super_admin')" />
+		
+		<remember-me/>
+		 -->
+		
+		<!-- <remember-me data-source-ref="dataSource"/> histórico de quem está logado -->
+		<!--
+			Para guardar o histórico, é necessário também a criação da tabela persists_login
+			
+			CREATE TABLE `persistent_logins` (
+  			`username` varchar(64) DEFAULT NULL,
+  			`series` varchar(64) NOT NULL,
+  			`token` varchar(64) DEFAULT NULL,
+  			`last_used` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  			PRIMARY KEY (`series`)
+			) ENGINE=InnoDB DEFAULT CHARSET=latin1; 
+			
+			
+			PARA CRIPTOGRAFAR A SENHA SEM SHA-256 NO MYSQL ====> select sha2([string], 256);
+		 -->
+		
+		<form-login login-page="/indexInvalido.do?error=2" default-target-url="/index.do"
+			always-use-default-target="true" authentication-failure-url="/indexInvalido.do?error=1" />
+		
+		<logout logout-success-url="/index.do" invalidate-session="true" delete-cookies="JSESSIONID,SPRING_SECURITY_REMEMBER_ME_COOKIE"/>
+	</http>
+	
+	<!-- LOGIN CUSTOMIZADO
+	<beans:bean id="myAuthenticationProvider" class="br.com.sebrae.providers.MyAuthenticationProvider"></beans:bean>
+	
+	<authentication-manager>
+	    <authentication-provider ref="myAuthenticationProvider" />
+	</authentication-manager> -->
+	
+	<!-- o atributo users-by-username-query traz as informações do usuário que serão guardadas na sessão do spring security -->
+	<authentication-manager>
+		<authentication-provider>
+			<!-- <password-encoder hash="sha-256"/> -->
+			<jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="SELECT email as username, senha as password, 'true' as enable FROM usuario WHERE email=?"
+				authorities-by-username-query="select email as username, 'usuario' as authority from usuario where email = ?" />
+		</authentication-provider>
+	</authentication-manager>
+	
+	
+</beans:beans>
