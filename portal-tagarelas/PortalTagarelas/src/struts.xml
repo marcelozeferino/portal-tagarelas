@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.action.extension" value="do"></constant>
+	
+	<package name="default" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor name="redirectMessage" class="com.br.portaltagarelas.interceptor.RedirectMessageInterceptor"/>
+			<interceptor-stack name="myStack">
+		    	<interceptor-ref name="redirectMessage" />
+		    	<interceptor-ref name="paramsPrepareParamsStack" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="myStack" />
+	
+		<action name="index" class="agendaAction" method="index">
+			<result name="success">/WEB-INF/pages/index.jsp</result>
+			<result name="error">/WEB-INF/pages/index.jsp</result>
+			<result name="input">/WEB-INF/pages/index.jsp</result>
+			<result name="usuarioLogado" type="redirectAction">listaMinhaSessao</result>
+		</action>
+		
+		<action name="indexInvalido">
+			<result name="success" type="redirectAction">
+				<param name="actionName">index</param>
+				<param name="error">${#parameters['error'][0]}</param>
+			</result>
+			<result name="error" type="redirectAction">
+				<param name="actionName">index</param>
+				<param name="error">${#parameters['error'][0]}</param>
+			</result>
+			<result name="input" type="redirectAction">
+				<param name="actionName">index</param>
+				<param name="error">${#parameters['error'][0]}</param>
+			</result>
+		</action>
+		
+		<action name="cadastroUsu">
+			<result name="success">/WEB-INF/pages/cadastroUsu.jsp</result>
+			<result name="error">/WEB-INF/pages/cadastroUsu.jsp</result>
+			<result name="input">/WEB-INF/pages/cadastroUsu.jsp</result>
+		</action>
+		
+		<action name="alteracaoUsu">
+			<result name="success">/WEB-INF/pages/alteracaoUsu.jsp</result>
+			<result name="error">/WEB-INF/pages/alteracaoUsu.jsp</result>
+			<result name="input">/WEB-INF/pages/alteracaoUsu.jsp</result>
+		</action>
+		
+		<action name="alterarUsuario" class="usuarioAction" method="alterarUsuario">
+			<result name="success" type="redirectAction">alteracaoUsu</result>
+			<result name="error" type="redirectAction">alteracaoUsu</result>
+			<result name="input" type="redirectAction">alteracaoUsu</result>
+		</action>
+		
+		<action name="reenviarSenha">
+			<result name="success">/WEB-INF/pages/reenviarSenha.jsp</result>
+			<result name="error">/WEB-INF/pages/reenviarSenha.jsp</result>
+			<result name="input">/WEB-INF/pages/reenviarSenha.jsp</result>
+		</action>
+		
+		
+		<action name="enviarSenhaParaUsuario" class="usuarioAction" method="enviarSenhaParaUsuario">
+			<result name="success" type="redirectAction">reenviarSenha</result>
+			<result name="error" type="redirectAction">reenviarSenha</result>
+			<result name="input" type="redirectAction">reenviarSenha</result>
+		</action>
+		
+		<action name="cadastrarUsuario" class="usuarioAction" method="cadastrarUsuario">
+			<result name="success" type="redirectAction">cadastroUsu</result>
+			<result name="error" type="redirectAction">cadastroUsu</result>
+			<result name="input" type="redirectAction">cadastroUsu</result>
+		</action>
+		
+		<action name="dinamica">
+			<result name="success">/WEB-INF/pages/dinamica.jsp</result>
+			<result name="error">/WEB-INF/pages/dinamica.jsp</result>
+			<result name="input">/WEB-INF/pages/dinamica.jsp</result>
+		</action>
+		
+		<action name="dinamicasEntrevista">
+			<result name="success">/WEB-INF/pages/dinamicasEntrevista.jsp</result>
+			<result name="error">/WEB-INF/pages/dinamicasEntrevista.jsp</result>
+			<result name="input">/WEB-INF/pages/dinamicasEntrevista.jsp</result>
+		</action>
+		
+		<action name="dinamicasDebate">
+			<result name="success">/WEB-INF/pages/dinamicasDebate.jsp</result>
+			<result name="error">/WEB-INF/pages/dinamicasDebate.jsp</result>
+			<result name="input">/WEB-INF/pages/dinamicasDebate.jsp</result>
+		</action>
+		
+		<action name="sistemas">
+			<result name="success">/WEB-INF/pages/sistemas.jsp</result>
+			<result name="error">/WEB-INF/pages/sistemas.jsp</result>
+			<result name="input">/WEB-INF/pages/sistemas.jsp</result>
+		</action>
+		
+		<action name="publicacao">
+			<result name="success">/WEB-INF/pages/publicacao.jsp</result>
+			<result name="error">/WEB-INF/pages/publicacao.jsp</result>
+			<result name="input">/WEB-INF/pages/publicacao.jsp</result>
+		</action>
+		
+		<action name="agendar">
+			<result name="success">/WEB-INF/pages/agendar.jsp</result>
+			<result name="error">/WEB-INF/pages/agendar.jsp</result>
+			<result name="input">/WEB-INF/pages/agendar.jsp</result>
+		</action>
+		
+		<action name="listaAgenda" class="agendaAction" method="listaAgenda">
+			<result name="success">/WEB-INF/pages/listaAgenda.jsp</result>
+			<result name="error">/WEB-INF/pages/listaAgenda.jsp</result>
+			<result name="input">/WEB-INF/pages/listaAgenda.jsp</result>
+		</action>
+		
+		<action name="cadastrarParticipacaoAgenda" class="agendaAction" method="cadastrarParticipacaoAgenda">
+			<result name="success" type="redirectAction">listaAgenda</result>
+			<result name="error" type="redirectAction">listaAgenda</result>
+			<result name="input" type="redirectAction">listaAgenda</result>
+		</action>
+		
+		<action name="listaArquivo" class="agendaAction" method="listaArquivo">
+			<result name="success">/WEB-INF/pages/listaArquivo.jsp</result>
+			<result name="error">/WEB-INF/pages/listaArquivo.jsp</result>
+			<result name="input">/WEB-INF/pages/listaArquivo.jsp</result>
+		</action>
+		
+		<action name="listaMinhaSessao" class="agendaAction" method="listaMinhaSessao">
+			<result name="success">/WEB-INF/pages/listaMinhaSessao.jsp</result>
+			<result name="error">/WEB-INF/pages/listaMinhaSessao.jsp</result>
+			<result name="input">/WEB-INF/pages/listaMinhaSessao.jsp</result>
+		</action>
+		
+		<action name="listaMinhaSessaoGeral" class="agendaAction" method="listaMinhaSessaoGeral">
+			<result name="success">/WEB-INF/pages/listaMinhaSessaoGeral.jsp</result>
+			<result name="error">/WEB-INF/pages/listaMinhaSessaoGeral.jsp</result>
+			<result name="input">/WEB-INF/pages/listaMinhaSessaoGeral.jsp</result>
+		</action>
+		
+		<action name="listaSessaoVouParticipar" class="agendaAction" method="listaSessaoVouParticipar">
+			<result name="success">/WEB-INF/pages/listaSessaoVouParticipar.jsp</result>
+			<result name="error">/WEB-INF/pages/listaSessaoVouParticipar.jsp</result>
+			<result name="input">/WEB-INF/pages/listaSessaoVouParticipar.jsp</result>
+		</action>
+		
+		<action name="listaArquivoParticipei" class="agendaAction" method="listaArquivoParticipei">
+			<result name="success">/WEB-INF/pages/listaArquivoParticipei.jsp</result>
+			<result name="error">/WEB-INF/pages/listaArquivoParticipei.jsp</result>
+			<result name="input">/WEB-INF/pages/listaArquivoParticipei.jsp</result>
+		</action>
+		
+		<action name="cadastrarAgenda" class="agendaAction" method="cadastrarAgenda">
+			<result name="success" type="redirectAction">agendar</result>
+			<result name="error" type="redirectAction">agendar</result>
+			<result name="input" type="redirectAction">agendar</result>
+		</action>
+		
+		<action name="chatTipico" class="chatAction" method="chatTipico">
+			<result name="success">/WEB-INF/pages/chatTipico.jsp</result>
+			<result name="error">/WEB-INF/pages/chatTipico.jsp</result>
+			<result name="input">/WEB-INF/pages/chatTipico.jsp</result>
+		</action>
+		
+		<action name="chatTipicoFullFuncionando" class="chatAction" method="chatTipicoFullFuncionando">
+			<result name="success">/WEB-INF/pages/chatTipicoFullFuncionando.jsp</result>
+			<result name="error">/WEB-INF/pages/chatTipicoFullFuncionando.jsp</result>
+			<result name="input">/WEB-INF/pages/chatTipicoFullFuncionando.jsp</result>
+		</action>
+		
+		<action name="sairDaSessao" class="chatAction" method="sairDaSessao">
+			<result name="success" type="redirectAction">index</result>
+			<result name="error" type="redirectAction">index</result>
+			<result name="input" type="redirectAction">index</result>
+		</action>
+	</package>
+	
+	<package name="ajaxPackage" namespace="/ajax" extends="default">
+		<action name="retornaListaUsuariosPorAgendaAjax" class="chatAction" method="retornaListaUsuariosPorAgendaAjax"/>
+		<action name="retornaMensagensPorAgendaAjax" class="chatAction" method="retornaMensagensPorAgendaAjax"/>
+		<action name="sairDaSessaoAjax" class="chatAction" method="sairDaSessaoAjax"/>
+		<action name="enviarMensagemUsuarioTipicoAjax" class="chatAction" method="enviarMensagemUsuarioTipicoAjax"/>
+		<action name="enviarMensagemUsuarioAjax" class="chatAction" method="enviarMensagemUsuarioAjax"/>
+	</package>
+</struts>

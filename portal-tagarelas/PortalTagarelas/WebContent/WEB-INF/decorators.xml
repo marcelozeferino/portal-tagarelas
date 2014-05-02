@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF">
+    <excludes>
+    	<pattern>/reenviarSenha.do</pattern>
+    	<pattern>/chatTipico.do</pattern>
+    	<pattern>/chatTipicoFullFuncionando.do</pattern>
+    	<!-- <pattern>/material/telaDetalhesItem.*</pattern>
+    	<pattern>/usuario/telaExternaCadastrarUsuario.do</pattern>
+    	<pattern>/*.html</pattern>
+    	<pattern>/orcamento/telaImpressaoOrcamento.*</pattern>
+    	<pattern>/usuario/telaEsqueciSenha.do</pattern>-->
+    </excludes>
+    <decorator name="main" page="pages/template/templatePortal.jsp">        
+        <pattern>/*</pattern>        
+    </decorator>
+</decorators>
