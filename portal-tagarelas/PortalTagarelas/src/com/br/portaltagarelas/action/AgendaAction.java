@@ -18,6 +18,8 @@ import com.br.portaltagarelas.facade.UsuarioFacadeIntf;
 import com.br.portaltagarelas.model.Agenda;
 import com.br.portaltagarelas.model.Usuario;
 
+// incluindo um comentario para fazer o commit
+
 @Controller
 @Scope("request")
 public class AgendaAction extends BaseAction{
