@@ -18,34 +18,7 @@
 		<intercept-url pattern="/chatTipico.do" access="isAuthenticated()" />
 		<intercept-url pattern="/chatTipicoFullFuncionando.do" access="isAuthenticated()" />
 				
-		<!-- 
-		<intercept-url pattern="/index.do" access="isAuthenticated()" />
-		<intercept-url pattern="/sobreFgv.do" access="isAuthenticated()" />
-		<intercept-url pattern="/metodologia.do" access="isAuthenticated()" />
-		<intercept-url pattern="/comoUsar.do" access="isAuthenticated()" />
-		<intercept-url pattern="/orcamento/*.do" access="isAuthenticated()" />
-		<intercept-url pattern="/material/*.do" access="isAuthenticated()" />
-		<intercept-url pattern="/orcamento/reenviarOrcamentoEmail.do" access="isAuthenticated()" />
-		<intercept-url pattern="/referencia/telaListarReferencia.do" access="isAuthenticated()" />
 		
-		<intercept-url pattern="/usuario/telaExternaCadastrarUsuario.do" access="permitAll" />
-		<intercept-url pattern="/usuario/verificarLoginExistenteAjax.do" access="permitAll" />
-		<intercept-url pattern="/usuario/verificarEmailExistenteAjax.do" access="permitAll" />
-		<intercept-url pattern="/usuario/cadastroExternoUsuario.do" access="permitAll" />
-		<intercept-url pattern="/login.do" access="permitAll" />
-		<intercept-url pattern="/usuario/ativarUsuario.*" access="permitAll" />
-		<intercept-url pattern="/usuario/telaEsqueciSenha.do" access="permitAll" />
-		<intercept-url pattern="/usuario/reenviarSenha.do" access="permitAll" />
-		
-		<intercept-url pattern="/arquivo/*.do" access="hasRole('super_admin')" />
-		<intercept-url pattern="/referencia/telaCadastrarReferencia.do" access="hasRole('administrador', 'super_admin')" />
-		
-		<intercept-url pattern="/usuario/telaAlterarPropriosDados.do" access="hasAnyRole('usuario', 'gerente')" />
-		<intercept-url pattern="/usuario/alterarPropriosDados.do" access="hasAnyRole('usuario', 'gerente')" />
-		<intercept-url pattern="/usuario/*.do" access="hasAnyRole('gerente', 'administrador', 'super_admin')" />
-		
-		<remember-me/>
-		 -->
 		
 		<!-- <remember-me data-source-ref="dataSource"/> histórico de quem está logado -->
 		<!--
